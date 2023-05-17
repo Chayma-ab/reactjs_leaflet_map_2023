@@ -1,7 +1,11 @@
 
 import {MapContainer, TileLayer, Marker, Popup  } from "react-leaflet";
+import "leaflet-control-geocoder/dist/Control.Geocoder.css";
+import "leaflet-control-geocoder/dist/Control.Geocoder.js"
 import L from"leaflet";
 import './App.css';
+import LeafletGeocoder from "./LeafletGeocoder";
+import LeafletRoutingMachine from "./LeafletRoutingMachine";
 
 function App() {
   const position = [36.8065, 10.1815]
@@ -13,11 +17,17 @@ function App() {
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={position}>
+    {/* <Marker position={position}>
       <Popup>
         A pretty CSS3 popup. <br /> Easily customizable.
       </Popup>
-    </Marker>
+    </Marker> */}
+
+    {/* <LeafletGeocoder/> */}
+
+    <LeafletRoutingMachine />
+  
+   
   </MapContainer>
       
     </div>
@@ -25,7 +35,8 @@ function App() {
 }
 
 let DefaultIcon = L.icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png',
+  iconUrl: '/marker-icon.png',
+  iconSize: [25,41],
 
 })
 L.Marker.prototype.options.icon = DefaultIcon;
